@@ -1,4 +1,11 @@
-package Practical2;
+/******************************************************************************
+ *  Compilation:  javac ThreeSumA.java
+ *  Execution:    java ThreeSum input.txt
+ *
+ *  @author Robert Sedgewick
+ *  @author Kevin Wayne
+ ******************************************************************************/
+import javax.sound.midi.SysexMessage;
 import java.util.Arrays;
 import java.lang.*;
 
@@ -41,7 +48,10 @@ public class ThreeSumA {
      */
     public static void main(String[] args)  { 
         In in = new In(args[0]);
+        final long startTime = System.currentTimeMillis();
         int[] a = in.readAllInts();
+        final long runTime = System.currentTimeMillis() - startTime;
+        System.out.println(runTime + " Milliseconds");
         int count = count(a);
               
     } 

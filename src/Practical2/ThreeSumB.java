@@ -1,4 +1,19 @@
-package Practical2;
+/******************************************************************************
+ *  Compilation:  javac ThreeSumB.java
+ *  Execution:    java ThreeSumB input.txt
+ *
+ *  Reads n integers
+ *  and counts the number of triples that sum to exactly 0.
+ *
+ *  Limitations
+ *  -----------
+ *     - we ignore integer overflow
+ *     - doesn't handle case when input has duplicates
+ *     
+ *  @author Robert Sedgewick
+ *  @author Kevin Wayne
+ *
+ ******************************************************************************/
 
 import java.util.Arrays;
 import java.lang.*;
@@ -48,9 +63,12 @@ public class ThreeSumB {
      */
     public static void main(String[] args)  { 
         In in = new In(args[0]);
+        final long startTime = System.currentTimeMillis();
         int[] a = in.readAllInts();
+        final long runTime = System.currentTimeMillis() - startTime;
         int count = count(a);
-        System.out.println("count =" + count);
+        System.out.println("count = " + count);
+        System.out.println("Time = " + runTime + " Milliseconds");
     } 
 } 
 
