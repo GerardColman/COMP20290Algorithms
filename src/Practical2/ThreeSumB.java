@@ -1,4 +1,4 @@
-/******************************************************************************
+package Practical2; /******************************************************************************
  *  Compilation:  javac ThreeSumB.java
  *  Execution:    java ThreeSumB input.txt
  *
@@ -61,14 +61,14 @@ public class ThreeSumB {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args)  { 
-        In in = new In(args[0]);
-        final long startTime = System.currentTimeMillis();
-        int[] a = in.readAllInts();
-        final long runTime = System.currentTimeMillis() - startTime;
-        int count = count(a);
-        System.out.println("count = " + count);
-        System.out.println("Time = " + runTime + " Milliseconds");
-    } 
+//    public static void main(String[] args)  {
+//        In in = new In(args[0]);
+//        final long startTime = System.currentTimeMillis();
+//        int[] a = in.readAllInts();
+//        final long runTime = System.currentTimeMillis() - startTime;
+//        int count = count(a);
+//        System.out.println("count = " + count);
+//        System.out.println("Time = " + runTime + " Milliseconds");
+//    }
 } 
 

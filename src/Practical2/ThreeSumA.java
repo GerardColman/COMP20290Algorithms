@@ -46,15 +46,15 @@ public class ThreeSumA {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args)  { 
-        In in = new In(args[0]);
-        final long startTime = System.currentTimeMillis();
-        int[] a = in.readAllInts();
-        final long runTime = System.currentTimeMillis() - startTime;
-        System.out.println(runTime + " Milliseconds");
-        int count = count(a);
-              
-    } 
+//    public static void main(String[] args)  {
+//        In in = new In(args[0]);
+//        final long startTime = System.currentTimeMillis();
+//        int[] a = in.readAllInts();
+//        final long runTime = System.currentTimeMillis() - startTime;
+//        System.out.println(runTime + " Milliseconds");
+//        int count = count(a);
+//
+//    }
 } 
 
 
