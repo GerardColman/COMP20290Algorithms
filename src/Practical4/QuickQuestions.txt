@@ -1,0 +1,10 @@
+1. n-1 where n is the length of the input array
+2. A stable sorting algorithm is an algorithm where an element doesnt change position between the sorted and unsorted array
+3. An external sorting algorithm is an algorithm that uses tape or disk during the sort
+4.
+    1. Comparison vs Non-Comparison
+    2. Time Complexity
+    3. Space Complexity
+    4. Stability
+    5. Internal vs External
+    6. Recursive vs Non-Recursive
