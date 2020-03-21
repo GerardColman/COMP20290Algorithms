@@ -120,7 +120,8 @@ public class Sorting {
         }
         left = MergeSort(left);
         right = MergeSort(right);
-        return arr;
+
+        return merge(left,right);
     }
     public int[] merge(int[] a, int[] b){
         int[] S = new int[a.length + b.length];
