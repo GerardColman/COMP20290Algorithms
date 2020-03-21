@@ -105,8 +105,9 @@ public class Sorting {
         return arr;
     }
     public int[] MergeSort(int[] arr){
-        int[] left = new int[arr.length/2];
-        int[] right = new int[arr.length/2];
+        int mid = arr.length/2;
+        int[] left = new int[mid];
+        int[] right = new int[mid];
         int cutoff = 10;
 
         /*Base Case*/
@@ -126,7 +127,19 @@ public class Sorting {
         left = MergeSort(left); //Recursive call
         right = MergeSort(right); //Recursive call
 
-        return merge(left,right);
+        if(arr[mid] <= arr[mid+1]){
+            for(int i = 0;i<arr.length;i++){
+                if(i <= mid){
+                    arr[i] = left[i];
+                }
+                if(i > mid){
+                    arr[i] = right[i];
+                }
+            }
+            return arr;
+        }else{
+            return merge(left,right);
+        }
     }
     public int[] merge(int[] a, int[] b){
         int[] S = new int[a.length + b.length];
