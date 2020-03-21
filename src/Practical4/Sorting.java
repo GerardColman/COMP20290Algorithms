@@ -63,6 +63,17 @@ public class Sorting {
         System.out.println("Stalin Sort Times: ");
         System.out.println("10: " + StalinOut[0] + " 1000: " + StalinOut[1] + " 100000: " + StalinOut[2]);
     }
+    public int[] shuffle(int[] a) {
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
+            // choose index uniformly in [0, i]
+            int r = (int) (Math.random() * (i + 1));
+            int swap = a[r];
+            a[r] = a[i];
+            a[i] = swap;
+        }
+        return a;
+    }
     public int[] SelectionSort(int[] arr){
         int temp;
         int minIndex;
@@ -108,6 +119,39 @@ public class Sorting {
         int mid = arr.length/2;
         int[] left = new int[mid];
         int[] right = new int[mid];
+
+        /*Base Case*/
+        if(arr.length == 1){
+            return arr;
+        }
+        for(int i = 0;i<arr.length/2;i++){ //Creating left array;
+            left[i] = arr[i];
+        }
+        for(int i = arr.length/2;i<arr.length;i++){ //Creating right array;
+            right[i] = arr[i];
+        }
+        /*Recursive Calls*/
+        left = MergeSort(left); //Recursive call
+        right = MergeSort(right); //Recursive call
+
+        if(arr[mid] <= arr[mid+1]){
+            for(int i = 0;i<arr.length;i++){
+                if(i <= mid){
+                    arr[i] = left[i];
+                }
+                if(i > mid){
+                    arr[i] = right[i];
+                }
+            }
+            return arr;
+        }else{
+            return merge(left,right);
+        }
+    }
+    public int[] EnhancedMergeSort(int[] arr){
+        int mid = arr.length/2;
+        int[] left = new int[mid];
+        int[] right = new int[mid];
         int cutoff = 10;
 
         /*Base Case*/
@@ -124,8 +168,8 @@ public class Sorting {
             right[i] = arr[i];
         }
         /*Recursive Calls*/
-        left = MergeSort(left); //Recursive call
-        right = MergeSort(right); //Recursive call
+        left = EnhancedMergeSort(left); //Recursive call
+        right = EnhancedMergeSort(right); //Recursive call
 
         if(arr[mid] <= arr[mid+1]){
             for(int i = 0;i<arr.length;i++){
@@ -159,5 +203,53 @@ public class Sorting {
         System.arraycopy(a,iA,S,iS,a.length-iA);
         System.arraycopy(b,iB,S,iS,b.length - iB);
         return S;
+    }
+    public int[] QuickSort(int[] arr,int low,int high){
+        /*low = starting index, high = ending index*/
+        if(arr.length<=1){
+            return arr;
+        }
+        int pIndex;
+        if(low<high){
+            pIndex = partition(arr, low, high);
+            QuickSort(arr,low,pIndex-1);
+            QuickSort(arr,pIndex+1,high);
+        }
+        return arr;
+    }
+    public int[] EnhancedQuickSort(int[] arr,int low,int high){
+        /*low = starting index, high = ending index*/
+        arr = shuffle(arr);
+        int cutoff = 10;
+        if(arr.length<=1){
+            return arr;
+        }
+        if(arr.length<=10){
+            return this.InsertionSort(arr);
+        }
+        int pIndex;
+        if(low<high){
+            pIndex = partition(arr, low, high);
+            EnhancedQuickSort(arr,low,pIndex-1);
+            EnhancedQuickSort(arr,pIndex+1,high);
+        }
+        return arr;
+    }
+    public int partition(int[] arr, int low, int high){
+        int temp = 0;
+        int pivot = arr[high];
+        int i = (low -1);
+        for(int j = low;j<=high-1;j++){
+            if(arr[j] < pivot){
+                i++;
+                temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        temp = arr[high];
+        arr[high] = arr[i+1];
+        arr[i+1] = temp;
+        return i+1;
     }
 }
