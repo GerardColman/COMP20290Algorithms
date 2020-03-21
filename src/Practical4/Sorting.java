@@ -105,21 +105,26 @@ public class Sorting {
         return arr;
     }
     public int[] MergeSort(int[] arr){
-        //base case
         int[] left = new int[arr.length/2];
         int[] right = new int[arr.length/2];
-        int[] mergeArray = new int[arr.length];
+        int cutoff = 10;
+
+        /*Base Case*/
         if(arr.length == 1){
             return arr;
+        }
+        if(arr.length <= cutoff){
+            return this.InsertionSort(arr);
         }
         for(int i = 0;i<arr.length/2;i++){ //Creating left array;
             left[i] = arr[i];
         }
         for(int i = arr.length/2;i<arr.length;i++){ //Creating right array;
-            right   [i] = arr[i];
+            right[i] = arr[i];
         }
-        left = MergeSort(left);
-        right = MergeSort(right);
+        /*Recursive Calls*/
+        left = MergeSort(left); //Recursive call
+        right = MergeSort(right); //Recursive call
 
         return merge(left,right);
     }
