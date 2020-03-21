@@ -1,5 +1,7 @@
 package Practical4;
 
+import java.util.Arrays;
+
 /*
 All the output times are in nano seconds because if milliseconds were used then all of the 10 values would be 0
  */
@@ -101,5 +103,42 @@ public class Sorting {
             }
         }
         return arr;
+    }
+    public int[] MergeSort(int[] arr){
+        //base case
+        int[] left = new int[arr.length/2];
+        int[] right = new int[arr.length/2];
+        int[] mergeArray = new int[arr.length];
+        if(arr.length == 1){
+            return arr;
+        }
+        for(int i = 0;i<arr.length/2;i++){ //Creating left array;
+            left[i] = arr[i];
+        }
+        for(int i = arr.length/2;i<arr.length;i++){ //Creating right array;
+            right   [i] = arr[i];
+        }
+        left = MergeSort(left);
+        right = MergeSort(right);
+        return arr;
+    }
+    public int[] merge(int[] a, int[] b){
+        int[] S = new int[a.length + b.length];
+        int iA = 0;
+        int iB = 0;
+        int iS = 0;
+
+        while(iA < a.length && iB < b.length){
+            if(a[iA] < b[iB]){ //first is smaller
+                S[iS] = a[iA];
+                iA++;
+            }else{ //second is smaller
+                S[iS] = b[iB];
+                iB++;
+            }
+        }
+        System.arraycopy(a,iA,S,iS,a.length-iA);
+        System.arraycopy(b,iB,S,iS,b.length - iB);
+        return S;
     }
 }

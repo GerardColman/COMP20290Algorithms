@@ -1,0 +1,5 @@
+1. Merge sort is linearithmic , O(n logn)
+2. The main disadvantage of MergeSort is: It uses extra space in proportion to the size of the input
+3. Merge sort makes use of Divide and Conquer
+4. Selection Sort
+5. Merge sort
