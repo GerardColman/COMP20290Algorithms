@@ -4,7 +4,7 @@ public class Substring {
 
     public static void main(String[] args) {
         Substring sub = new Substring();
-        //System.out.println(sub.BruteSearch("hello", "ll"));
+        System.out.println("Brute Force: Match at index " + sub.BruteSearch("hello", "el"));
         String txt = "ABABDABACDABABCABAB";
         String pat = "ABABCABAB";
         sub.KMPSearch(pat, txt);
@@ -44,7 +44,7 @@ public class Substring {
                 j++;
             }
             if(j==M){
-                System.out.println("Match at: "  + (i-j));
+                System.out.println("KMP: Match at index "  + (i-j));
                 j = lps[j-1];
             }
 
