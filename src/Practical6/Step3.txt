@@ -1,0 +1,2 @@
+Q1. The complexity of the Brute Force substring is O(mn)
+Q2. The complexity of the KMP algorithm is O(n)
