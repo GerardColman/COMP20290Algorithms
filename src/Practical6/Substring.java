@@ -4,16 +4,17 @@ public class Substring {
 
     public static void main(String[] args) {
         Substring sub = new Substring();
-        String txt = "MOORHIJFWC";
-        String pat = "RHI";
+        String txt = "KASAOAAMMXKESTYMBSMEORSYQMNIARVPMEDXVGAVNUYEHNUPEPZIDOMERTSGBGUSHQTUJQNRZAUFACLPRQWUOIDYRAPNQBNXSPHW";
+        String pat = "DYRA";
+
         long startTime = System.currentTimeMillis();
         System.out.println("Brute Force: Match at index " + sub.BruteSearch(txt, pat));
         long time = System.currentTimeMillis() - startTime;
         System.out.println("Time = " + time);
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         sub.KMPSearch(pat, txt);
-        time = System.currentTimeMillis() - startTime;
+        time = System.nanoTime() - startTime;
         System.out.println("Time = " + time);
     }
 
