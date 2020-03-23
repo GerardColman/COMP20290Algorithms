@@ -44,12 +44,16 @@ public class Substring {
                 j++;
             }
             if(j==M){
-                System.out.println("Match at: "  + i);
-                i++;
+                System.out.println("Match at: "  + (i-j));
+                j = lps[j-1];
             }
 
             else if(i<N && pat.charAt(j) != txt.charAt(i)){
-                i = i+j;
+                if(j != 0){
+                    j = lps[j-1];
+                }else{
+                    i=i+1;
+                }
             }
         }
     }
