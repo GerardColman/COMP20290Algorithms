@@ -4,22 +4,30 @@ public class Substring {
 
     public static void main(String[] args) {
         Substring sub = new Substring();
-        System.out.println("Brute Force: Match at index " + sub.BruteSearch("hello", "el"));
-        String txt = "ABABDABACDABABCABAB";
-        String pat = "ABABCABAB";
+        String txt = "MOORHIJFWC";
+        String pat = "RHI";
+        long startTime = System.currentTimeMillis();
+        System.out.println("Brute Force: Match at index " + sub.BruteSearch(txt, pat));
+        long time = System.currentTimeMillis() - startTime;
+        System.out.println("Time = " + time);
+
+        startTime = System.currentTimeMillis();
         sub.KMPSearch(pat, txt);
+        time = System.currentTimeMillis() - startTime;
+        System.out.println("Time = " + time);
     }
 
     public int BruteSearch(String txt, String pat) {
         int txtLen = txt.length();
         int patLen = pat.length();
         int result = -1;
-        String subString = "";
-        for (int i = 0; i < txtLen - patLen; i++) {
-            subString = txt.substring(i, i + patLen);
-            if (subString.equals(pat)) {
-                result = i;
-                break;
+        int j = 0;
+        for (int i = 0; i < txtLen; i++) {
+            if (txt.charAt(i) == pat.charAt(j) && j != patLen-1) {
+                j++;
+            }
+            if(txt.charAt(i) == pat.charAt(j) && j==patLen-1){
+                result = i-j;
             }
         }
         return result;
