@@ -1,0 +1,31 @@
+Binary Compression
+    bits in 4runs.bin: 0000000000000001111111000000011111111111 40 bits
+    compressed 4runs.bin:  00001111000001110000011100001011 32 bits
+    bits in 4runsrle.bin: 00001111000001110000011100001011 32 bits
+ASCII Compression
+            bits in abra.txt: 01000001
+                              01000010
+                              01010010
+                              01000001
+                              01000011
+                              01000001
+                              01000100
+                              01000001
+                              01000010
+                              01010010
+                              01000001
+                              00100001
+                              96 bits
+            bits in compressed abra.txt: 416 bits
+            RATIO = 3:13
+            bits in test.txt: 256 bits
+            bits in compressed test.txt: 1104
+            Ratio = 16:69
+Bitmap Compression
+    bits in q32x48.bin: 1536 bits
+    bits in q32x48rle.bin: 1144
+    Ratio = 192 : 143
+   -----------------------------
+   bits in q64x96.bin: 6144
+   bits in q64x96rle.bin: 2296
+   Ratio = 768:287
