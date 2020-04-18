@@ -1,7 +1,7 @@
 # Huffman Compression Assignment Readme
 ###TODO LIST
 - [ ] HuffmanTrie class
-    - [ ] Insert (if not present insert into trie, if present return node value)
+    - [ ] Insert (if not present insert into trie, if present return null)
     - [ ] Encode
     - [ ] Decode
 - [ ] HuffmanAlgorithm class
