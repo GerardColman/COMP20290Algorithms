@@ -12,7 +12,6 @@ public class RussianPeasant {
         int x = 0;
         int y = 0;
         BufferedWriter writer = new BufferedWriter(new FileWriter("timings.txt"));
-        writer.write("X * Y | elapsed time" + "\n");
         for(x = 0;x<1000;x++){
             RussianPeasant RP = new RussianPeasant();
             final long startTime = System.nanoTime();
@@ -20,7 +19,7 @@ public class RussianPeasant {
             final long elapsedTime = System.nanoTime() - startTime;
             System.out.print(x + " * " + y + " = " + RP.RussianMultiply(x,y));
             System.out.println(" | " + elapsedTime);
-            writer.write(x + "*" + y + " | " + elapsedTime + "\n");
+            writer.write(x + "\n");
             y++;
         }
         writer.close();
